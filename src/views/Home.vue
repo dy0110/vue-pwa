@@ -31,8 +31,13 @@
 </template>
 
 <script>
+import AppDialog from "../components/AppDialog"
+
 export default {
   name: "home",
+  components:{
+    AppDialog
+  },
   data() {
     return {
       years: [2014, 2015, 2016, 2017, 2018, 2019],
@@ -55,7 +60,8 @@ export default {
         }
       ],
       setYear: null,
-      setSeason: null
+      setSeason: null,
+      dialog: false
     };
   },
   methods: {
