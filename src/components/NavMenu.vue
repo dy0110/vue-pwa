@@ -1,7 +1,10 @@
 <template>
   <div id="navmenu">
     <v-toolbar color="info">
-      <v-toolbar-side-icon class="white--text" @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-side-icon
+        class="white--text"
+        @click.stop="drawer = !drawer"
+      ></v-toolbar-side-icon>
       <v-toolbar-title class="white--text">Title</v-toolbar-title>
       <v-spacer></v-spacer>
     </v-toolbar>
