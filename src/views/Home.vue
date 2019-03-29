@@ -22,20 +22,28 @@
         </v-flex>
       </v-layout>
       <v-layout align-center justify-center row fill-height>
+        <v-flex xs12 sm4 md4></v-flex>
         <v-flex xs12 sm4 md4>
-          <v-btn color="info" @click="getAnimeList()">検索</v-btn>
+          <div class="text-xs-center">
+            <v-btn color="info" @click="getAnimeList()">検索</v-btn>
+          </div>
         </v-flex>
+        <v-flex xs12 sm4 md4></v-flex>
       </v-layout>
     </v-container>
+    <app-dialog ref="AppDialog">
+      <p slot="dialog_title">エラー</p>
+      <p slot="dialog_text">{{ err_msg }}</p>
+    </app-dialog>
   </div>
 </template>
 
 <script>
-import AppDialog from "../components/AppDialog"
+import AppDialog from "../components/AppDialog";
 
 export default {
   name: "home",
-  components:{
+  components: {
     AppDialog
   },
   data() {
@@ -61,16 +69,19 @@ export default {
       ],
       setYear: null,
       setSeason: null,
-      dialog: false
+      err_msg: ""
     };
   },
   methods: {
     getAnimeList() {
       if (this.setSeason === null || this.setSeason === null) {
-        // TODO: ダイアログ表示
+        this.err_msg = "クールと西暦を選択してください";
+        // 子コンポーネントのデータを変更
+        this.$refs.AppDialog.dailog = true;
         return;
       }
       console.log("setYear: " + this.setYear + " setSeason: " + this.setSeason);
+      // APIを取得する
     }
   }
 };
