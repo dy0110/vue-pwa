@@ -33,13 +33,15 @@
     </v-container>
     <app-dialog ref="AppDialog">
       <p slot="dialog_title">エラー</p>
-      <p slot="dialog_text">{{ err_msg }}</p>
+      <p slot="dialog_text">{{ errMsg }}</p>
     </app-dialog>
   </div>
 </template>
 
 <script>
 import AppDialog from "../components/AppDialog";
+import axios from "axios";
+import store from "../store";
 
 export default {
   name: "home",
@@ -56,32 +58,53 @@ export default {
         },
         {
           text: "2期(春)",
-          month: 4
+          month: 2
         },
         {
           text: "3期(夏)",
-          month: 7
+          month: 3
         },
         {
           text: "4期(秋)",
-          month: 10
+          month: 4
         }
       ],
       setYear: null,
       setSeason: null,
-      err_msg: ""
+      errMsg: "",
+      dataList: []
     };
   },
   methods: {
-    getAnimeList() {
-      if (this.setSeason === null || this.setSeason === null) {
-        this.err_msg = "クールと西暦を選択してください";
-        // 子コンポーネントのデータを変更
-        this.$refs.AppDialog.dailog = true;
-        return;
+    async getAnimeList() {
+      try {
+        if (this.setSeason === null && this.setYear === null) {
+          this.errMsg = "クールと西暦を選択してください";
+          // 子コンポーネントのデータを変更
+          this.$refs.AppDialog.dailog = true;
+          return;
+        } else if (this.setSeason === null) {
+          this.errMsg = "クールを選択してください";
+          // 子コンポーネントのデータを変更
+          this.$refs.AppDialog.dailog = true;
+        } else if (this.setYear === null) {
+          this.errMsg = "西暦を選択してください";
+          // 子コンポーネントのデータを変更
+          this.$refs.AppDialog.dailog = true;
+        }
+        console.log(
+          "setYear: " + this.setYear + " setSeason: " + this.setSeason
+        );
+        // APIを取得する
+        const url = `http://api.moemoe.tokyo/anime/v1/master/${this.setYear}/${
+          this.setSeason
+        }`;
+        const response = await axios.get(url);
+        this.dataList = response.data;
+        store.commit("setDataList", this.dataList);
+      } catch (error) {
+        console.error(error);
       }
-      console.log("setYear: " + this.setYear + " setSeason: " + this.setSeason);
-      // APIを取得する
     }
   }
 };
