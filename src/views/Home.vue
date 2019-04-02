@@ -30,6 +30,9 @@
         </v-flex>
         <v-flex xs12 sm4 md4></v-flex>
       </v-layout>
+      <v-layout align-center justify-center row fill-height>
+        
+      <v-layout>  
     </v-container>
     <app-dialog ref="AppDialog">
       <p slot="dialog_title">エラー</p>
