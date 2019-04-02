@@ -30,9 +30,20 @@
         </v-flex>
         <v-flex xs12 sm4 md4></v-flex>
       </v-layout>
-      <v-layout align-center justify-center row fill-height>
-        
-      <v-layout>  
+      <v-layout>
+        <v-flex xs12 sm12 md12>
+          <v-list two-line subheader v-if="dataList.length !== 0">
+            <v-subheader inset>作品リスト</v-subheader>
+            <anime-list
+              v-for="item in dataList"
+              :key="item.id"
+              :anime_title="item.title"
+              :anime_sex="item.sex"
+              :anime_id="item.id"
+            ></anime-list>
+          </v-list>
+        </v-flex>
+      </v-layout>
     </v-container>
     <app-dialog ref="AppDialog">
       <p slot="dialog_title">エラー</p>
@@ -43,13 +54,15 @@
 
 <script>
 import AppDialog from "../components/AppDialog";
+import AnimeList from "../components/AnimeList";
 import axios from "axios";
 import store from "../store";
 
 export default {
   name: "home",
   components: {
-    AppDialog
+    AppDialog,
+    AnimeList
   },
   data() {
     return {
