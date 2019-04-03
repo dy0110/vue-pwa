@@ -4,7 +4,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    dataList: []
+    dataList: [],
+    FavoriteList: []
   },
   mutations: {
     setDataList(state, dataList) {

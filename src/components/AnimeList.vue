@@ -1,7 +1,7 @@
 <template>
   <v-list-tile>
     <v-list-tile-avatar>
-      <v-icon>folder</v-icon>
+      <v-icon color="grey lighten-1">folder</v-icon>
     </v-list-tile-avatar>
 
     <v-list-tile-content>
