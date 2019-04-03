@@ -13,9 +13,11 @@
     </v-list-tile-content>
 
     <v-list-tile-action>
-      <v-btn icon ripple>
-        <v-icon color="grey lighten-1">info</v-icon>
-      </v-btn>
+      <router-link :to="`/item/${anime_id}`">
+        <v-btn icon ripple>
+          <v-icon color="grey lighten-1">info</v-icon>
+        </v-btn>
+      </router-link>
     </v-list-tile-action>
   </v-list-tile>
 </template>
