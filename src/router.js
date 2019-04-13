@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
 import ItemDetail from "./views/ItemDetail";
+import store from "./store";
 
 Vue.use(Router);
 
@@ -23,7 +24,17 @@ export default new Router({
     },
     {
       path: "/item/:itemId",
-      component: ItemDetail
+      component: ItemDetail,
+      beforeEnter: (to, from, next) => { // [2]
+        console.log('router: beforeEnter');
+        console.log(to.params.itemId);
+        const item = store.getters.getDetailData( Number(to.params.itemId) );
+        if( item.length === 0 ){
+          next({path: "/"})
+        } else {
+          next();
+        }
+    }
     },
     {
       path: "*",

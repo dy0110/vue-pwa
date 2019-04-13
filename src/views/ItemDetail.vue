@@ -37,8 +37,8 @@
         </template>
         <span>ツイッターへ</span>
       </v-tooltip>
-    </v-card-actions>
-  </v-card>
+      </v-card-actions>
+   </v-card>
 </template>
 
 <script>
@@ -62,6 +62,7 @@ export default {
   created() {
     const itemId = Number(this.$route.params.itemId);
     this.itemDetail = store.getters.getDetailData(itemId);
+    console.log(this.itemDetail);
   }
 };
 </script>
