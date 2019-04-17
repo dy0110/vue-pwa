@@ -11,6 +11,10 @@ export default new Vuex.Store({
     setDataList(state, dataList) {
       // APIから取得したデータをVuexにセット
       state.dataList = dataList;
+    },
+    setFavoriteList(state, dataList) {
+      // お気に入りリストにアイテムをセット
+      state.FavoriteList = dataList;
     }
   },
   actions: {},

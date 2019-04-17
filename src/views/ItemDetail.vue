@@ -15,7 +15,7 @@
     <v-card-actions>
       <v-tooltip bottom>
         <template v-slot:activator="{ on }">
-          <v-btn flat fab dark color="pink" v-on="on">
+          <v-btn flat fab dark color="pink" v-on="on" @click="addFavoriteItem">
             <v-icon dark>favorite_border</v-icon>
           </v-btn>
         </template>
@@ -57,6 +57,9 @@ export default {
     },
     openTwitter(){
       window.open( "https://twitter.com/" );
+    },
+    addFavoriteItem(){
+       store.commit("setFavoriteList", this.itemDetail);
     }
   },
   created() {
