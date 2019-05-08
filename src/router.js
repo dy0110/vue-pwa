@@ -25,16 +25,17 @@ export default new Router({
     {
       path: "/item/:itemId",
       component: ItemDetail,
-      beforeEnter: (to, from, next) => { // 直接アクセスして来た時にトップページへ戻す
-        console.log('router: beforeEnter');
+      beforeEnter: (to, from, next) => {
+        // 直接アクセスして来た時にトップページへ戻す
+        console.log("router: beforeEnter");
         console.log(to.params.itemId);
-        const item = store.getters.getDetailData( Number(to.params.itemId) );
-        if( item.length === 0 ){
-          next({path: "/"})
+        const item = store.getters.getDetailData(Number(to.params.itemId));
+        if (item.length === 0) {
+          next({ path: "/" });
         } else {
           next();
         }
-    }
+      }
     },
     {
       path: "*",

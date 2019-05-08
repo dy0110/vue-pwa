@@ -9,7 +9,7 @@
         <span>聖地: なし</span>
       </div>
       <div v-else>
-        <span>聖地: {{itemDetail[0].city_name}}</span>
+        <span>聖地: {{ itemDetail[0].city_name }}</span>
       </div>
     </v-card-text>
     <v-card-actions>
@@ -37,8 +37,8 @@
         </template>
         <span>ツイッターへ</span>
       </v-tooltip>
-      </v-card-actions>
-   </v-card>
+    </v-card-actions>
+  </v-card>
 </template>
 
 <script>
@@ -55,11 +55,12 @@ export default {
     openPublicUrl() {
       window.open(this.itemDetail[0].public_url);
     },
-    openTwitter(){
-      window.open( "https://twitter.com/" );
+    openTwitter() {
+      window.open("https://twitter.com/");
     },
-    addFavoriteItem(){
-       store.commit("setFavoriteList", this.itemDetail);
+    addFavoriteItem() {
+      store.commit("setFavoriteList", this.itemDetail);
+      this.$localStorage.set("objectKey", this.itemDetail);
     }
   },
   created() {

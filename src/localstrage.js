@@ -1,20 +1,17 @@
 import Vue from "vue";
-import VueLocalStorage from 'vue-localstorage'
+import VueLocalStorage from "vue-localstorage";
 
 Vue.use(VueLocalStorage);
 
 const LocalStrage = {
-    localStrage:{
-        objectKey:{
-            type: Object,
-            default: {
-                val: 'default'
-            }
-        }
-    },
-    methods: {
-        
+  localStrage: {
+    objectKey: {
+      type: Object,
+      default: {
+        val: "default"
+      }
     }
-}
+  }
+};
 
-export default LocalStrage
+export default LocalStrage;
