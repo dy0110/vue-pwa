@@ -13,11 +13,9 @@
     </v-list-tile-content>
 
     <v-list-tile-action>
-      <router-link :to="`/item/${anime_id}`">
-        <v-btn icon ripple>
+      <v-btn icon ripple @click="showItemDetail()">
           <v-icon color="grey lighten-1">info</v-icon>
-        </v-btn>
-      </router-link>
+      </v-btn>
     </v-list-tile-action>
   </v-list-tile>
 </template>
@@ -29,6 +27,11 @@ export default {
     anime_title: String,
     anime_sex: Number,
     anime_id: Number
+  },
+  methods:{
+    showItemDetail(){
+      this.$router.push({ path: `/item/${this.anime_id}` })
+    }
   }
 };
 </script>

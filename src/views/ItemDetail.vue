@@ -32,7 +32,7 @@
       <v-tooltip bottom>
         <template v-slot:activator="{ on }">
           <v-btn flat fab dark color="info" v-on="on" @click="openTwitter">
-            ツイッター
+           <font-awesome-icon :icon="['fab', 'twitter']" size="lg" />
           </v-btn>
         </template>
         <span>ツイッターへ</span>
@@ -56,7 +56,7 @@ export default {
       window.open(this.itemDetail[0].public_url);
     },
     openTwitter() {
-      window.open("https://twitter.com/");
+      window.open("https://twitter.com/" + this.itemDetail[0].twitter_account );
     },
     addFavoriteItem() {
       store.commit("setFavoriteList", this.itemDetail);
