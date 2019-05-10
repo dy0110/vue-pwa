@@ -17,8 +17,9 @@
           </v-list-tile-action>-->
 
           <v-list-tile-content>
-            <v-list-tile-title>
-              <router-link class="title" to="/">Home</router-link>
+            <v-list-tile-title @click="goToHome()">
+              <v-icon>home</v-icon>トップ
+              <!-- <router-link class="title" to="/">Home</router-link> -->
             </v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
@@ -28,8 +29,9 @@
           </v-list-tile-action>-->
 
           <v-list-tile-content>
-            <v-list-tile-title>
-              <router-link class="title" to="/about">About</router-link>
+            <v-list-tile-title @click="goToFavolitList()">
+              <v-icon>list</v-icon>お気に入り一覧
+              <!-- <router-link class="title" to="/about">About</router-link> -->
             </v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
@@ -45,6 +47,14 @@ export default {
     return {
       drawer: null
     };
-  }
+  },
+  methods: {
+    goToHome(){
+       this.$router.push("/");
+    },
+    goToFavolitList(){
+      this.$router.push("/favolitList");
+    }
+  },
 };
 </script>

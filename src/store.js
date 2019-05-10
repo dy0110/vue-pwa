@@ -4,17 +4,12 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    dataList: [],
-    FavoriteList: []
+    dataList: []
   },
   mutations: {
     setDataList(state, dataList) {
       // APIから取得したデータをVuexにセット
       state.dataList = dataList;
-    },
-    setFavoriteList(state, dataList) {
-      // お気に入りリストにアイテムをセット
-      state.FavoriteList = dataList;
     }
   },
   actions: {},
