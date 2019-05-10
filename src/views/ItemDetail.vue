@@ -31,7 +31,14 @@
       </v-tooltip>
       <v-tooltip bottom v-else>
         <template v-slot:activator="{ on }">
-          <v-btn flat fab dark color="pink" v-on="on" @click="removeFavoriteItem">
+          <v-btn
+            flat
+            fab
+            dark
+            color="pink"
+            v-on="on"
+            @click="removeFavoriteItem"
+          >
             <v-icon dark>favorite</v-icon>
           </v-btn>
         </template>
@@ -48,7 +55,7 @@
       <v-tooltip bottom>
         <template v-slot:activator="{ on }">
           <v-btn flat fab dark color="info" v-on="on" @click="openTwitter">
-            <font-awesome-icon :icon="['fab', 'twitter']" size="lg"/>
+            <font-awesome-icon :icon="['fab', 'twitter']" size="lg" />
           </v-btn>
         </template>
         <span>ツイッターへ</span>
@@ -99,14 +106,14 @@ export default {
       for (let i = 0; i < item.length; i++) {
         const data = JSON.parse(Base64.decode(item[i]));
         if (data.id !== this.itemDetail[0].id) {
-           array.push(Base64.encode(JSON.stringify(data)));
-        } 
+          array.push(Base64.encode(JSON.stringify(data)));
+        }
       }
       array = array.join(",");
       localStorage.setItem("FavoriteList", array);
       this.isFavolit = false;
     },
-    backToHome(){
+    backToHome() {
       this.$router.push("/");
     }
   },

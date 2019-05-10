@@ -5,13 +5,13 @@ import store from "./store";
 import "./registerServiceWorker";
 import Vuetify from "vuetify";
 import "vuetify/dist/vuetify.min.css";
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faTwitter } from '@fortawesome/free-brands-svg-icons/faTwitter'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons/faTwitter";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 library.add(faTwitter);
 
-Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.component("font-awesome-icon", FontAwesomeIcon);
 
 Vue.use(Vuetify);
 

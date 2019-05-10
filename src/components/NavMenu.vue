@@ -49,12 +49,12 @@ export default {
     };
   },
   methods: {
-    goToHome(){
-       this.$router.push("/");
+    goToHome() {
+      this.$router.push("/");
     },
-    goToFavolitList(){
+    goToFavolitList() {
       this.$router.push("/favolitList");
     }
-  },
+  }
 };
 </script>

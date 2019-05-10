@@ -14,7 +14,7 @@
 
     <v-list-tile-action>
       <v-btn icon ripple @click="showItemDetail()">
-          <v-icon color="grey lighten-1">info</v-icon>
+        <v-icon color="grey lighten-1">info</v-icon>
       </v-btn>
     </v-list-tile-action>
   </v-list-tile>
@@ -28,9 +28,9 @@ export default {
     anime_sex: Number,
     anime_id: Number
   },
-  methods:{
-    showItemDetail(){
-      this.$router.push({ path: `/item/${this.anime_id}` })
+  methods: {
+    showItemDetail() {
+      this.$router.push({ path: `/item/${this.anime_id}` });
     }
   }
 };

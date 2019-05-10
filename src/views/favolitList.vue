@@ -10,7 +10,9 @@
         :anime_id="item.id"
       ></anime-list>
     </v-list>
-    <v-alert value="true" type="warning" v-else>登録されたお気に入りはありません。</v-alert>
+    <v-alert value="true" type="warning" v-else
+      >登録されたお気に入りはありません。</v-alert
+    >
   </v-flex>
 </template>
 
