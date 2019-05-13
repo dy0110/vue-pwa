@@ -1,6 +1,6 @@
 <template>
   <v-flex xs12 sm12 md12>
-    <v-list two-line subheader v-if="dataList.length !== 0">
+    <v-list two-line subheader v-if="listFlag === false">
       <v-subheader inset>お気に入り作品リスト</v-subheader>
       <anime-list
         v-for="item in dataList"
@@ -27,17 +27,23 @@ export default {
   },
   data() {
     return {
-      dataList: []
+      dataList: [],
+      listFlag: false
     };
   },
   mounted() {
     let array = [];
     let list = localStorage.getItem("FavoriteList");
+    if (list === null || list.length === 0) {
+      this.listFlag = true;
+      return;
+    }
     list = list.split(",");
     for (let i = 0; i < list.length; i++) {
       array.push(JSON.parse(Base64.decode(list[i])));
     }
     this.dataList = array;
+    this.listFlag = false;
   }
 };
 </script>

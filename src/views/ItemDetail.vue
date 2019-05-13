@@ -118,9 +118,20 @@ export default {
     }
   },
   created() {
+    // IDに符合するデータをstoreからとる
     const itemId = Number(this.$route.params.itemId);
     this.itemDetail = store.getters.getDetailData(itemId);
-    console.log(this.itemDetail);
+  },
+  mounted() {
+    // お気に入りかどうかをチェック
+    let item = localStorage.getItem("FavoriteList");
+    item = item.split(",");
+    for (let i = 0; i < item.length; i++) {
+      const data = JSON.parse(Base64.decode(item[i]));
+      if (data.id === this.itemDetail[0].id) {
+        this.isFavolit = true;
+      }
+    }
   }
 };
 </script>
